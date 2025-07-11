@@ -61,17 +61,24 @@ const Header = () => {
             className="hover:text-blue-200 transition"
             onClick={() => setIsMenuOpen(false)}
           >
-            Stores
+            Fishing Spots
           </a>
           <a
             href="#services"
             className="hover:text-blue-200 transition"
             onClick={() => setIsMenuOpen(false)}
           >
-            Services
+            Gear Guide
           </a>
           <a
-            href="#contact"
+            href="#tips"
+            className="hover:text-blue-200 transition"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Tips
+          </a>
+          <a
+            href="#"
             className="hover:text-blue-200 transition"
             onClick={() => setIsMenuOpen(false)}
           >
