@@ -1,6 +1,11 @@
 import React from 'react'
+import { FaTimes } from 'react-icons/fa';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <>
       {/* Navigation */}
@@ -27,9 +32,53 @@ const Header = () => {
               Contact
             </a>
           </div>
-          <button className="md:hidden text-2xl">☰</button>
+          <button
+            onClick={toggleMenu}
+            className="md:hidden text-xl focus:outline-none"
+          >
+            {isMenuOpen ? <FaTimes /> : "☰"}
+          </button>
         </div>
       </nav>
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-0 bg-blue-800 z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${
+          isMenuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col items-center space-y-8 text-white text-2xl">
+          <a
+            href="#home"
+            className="hover:text-blue-200 transition"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </a>
+          <a
+            href="#stores"
+            className="hover:text-blue-200 transition"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Stores
+          </a>
+          <a
+            href="#services"
+            className="hover:text-blue-200 transition"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Services
+          </a>
+          <a
+            href="#contact"
+            className="hover:text-blue-200 transition"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contacts
+          </a>
+        </div>
+      </div>
     </>
   );
 }

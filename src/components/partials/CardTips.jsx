@@ -19,4 +19,4 @@ const CardTips = ({title, description, icon, tip}) => {
   );
 }
 
-export default CardTips
+export default CardTips;
